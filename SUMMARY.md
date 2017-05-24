@@ -1,6 +1,4 @@
 # Summary
 
-* [Introduction](README.md)
-* [First Chapter](chapter1.md)
-* [ads](ads.md)
-
+* [Introduzione](README.md)
+* [Cosa è la Cloud Robotics?](chapter1.md)

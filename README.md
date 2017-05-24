@@ -1,11 +1,24 @@
-# Cloud Robotics e Internet delle Cose: l'Internet dei Robot
+# Introduzione
 
-L'internet delle cose è un insieme di tecnologie ed un'infrastruttura che permette ad oggetti reali di interconnettersi, comunicare e processare dati tramite Internet. Fino a poco tempo fa gli unici oggetti collegati alla rete erano i computer e gli smartphone. Oggi iniziano a vedersi i primi oggetti "smart" collegati alla rete: ad esempio la smartTV o le console di videogame moderne. In futuro avremo tutti gli oggetti di casa nostra "smart": ci sarà il frigorifero connesso alla rete domotica della casa insieme a tutti gli elettrodomestici. Tutti questi dispositivi in casa integrati in una sola rete ottimizzeranno le risorse per sprecare meno elettricità e gas a seconda delle nostre necessità.
+Questo manuale fornisce un'introduzione all'utilizzo della piattaforma
+Open Source di Cloud Robotics sviluppata da HotBlack Robotics.
 
-Fuori dall' ambiente domestico troveremo, ad esempio, reti di sensori nella città per monitorare lo stato dei i parcheggi che ti informeranno su dove è meglio parcheggiare; telecamere smart che sorveglieranno la città; sensori per il monitoraggio della temperatura e umidità nelle coltivazioni agricole.
+La Cloud Robotics è un nuovo approccio alla robotica che è considerato da molti
+come l'abilitatore della Robotica di Servizio. L'idea di base è quella di sfruttare
+la potenza di internet per creare servizi robotici connessi, più intelligenti e più economici.
 
-Un esempio concreto di IoT domestico \(già in vendita\) è[Nest](https://nest.com/): un termostato per la casa intelligente che si collega ad Internet e tramite il cellulare studia l'utilizzatore e si adatta alle abitudini delle persone regolando così la temperatura a seconda che la persona sia in casa o meno. Internet delle cose quindi, perchè stiamo vivendo in questo periodo tecnologico il passaggio da_Internet "digitale"_, ovvero le pagine web, i server, i computer, gli smartphone o le stampanti, a_Internet degli oggetti_, ovvero la diffusione di Internet a rendere "smart" tutti gli oggetti che ci circondano.
+Pensate come esempio pratico alla piattaforma di Amazon per la consegna dei pacchi in modo autonomo utilizzando Droni. Ogni drone, per eseguire questo task, deve risolvere una serie di compiti complessi:
 
-  
+ -  conoscere la propria posizione e il punto di destinazione del pacco;
+ - calcolare l'itinerario migliore per raggiungere il punto di consegna (considerando anche la presenza di palazzi, aree in cui è vietato volare, eccetera);
+ - raggiungere il punto di destinazione in modo sicuro, quindi evitando possibili collisioni con ostacoli quali altri droni, palazzi alti non segnati nella mappa, eccetera;
+ - atterare nel punto prestabilito senza far male a nessuno;
+ - tornare al punto di partenza.
 
+Tutto questo, come è facile immaginare, richiede una serie algoritmi molto complessi che, se messi sul drone, richiederebbero l'utilizzo di un server molto potente andando ad incidere sia sul peso del drone, che sulla batterie (che nei droni sono caratteristiche molto critiche).
 
+Alternativamente, grazie alla Cloud Robotics, possiamo far girare sul drone solo quella parte processi critici, e remotizzare quelli più complessi. In questo modo
+non avremo necessità di tantissime risorse sul robot e potremmo contare su una scheda di calcolo molto più semplice, economica, leggera e meno esosa di batteria.
+
+## Cosa è una piattaforma di Cloud Robotics
+Come per il Cloud Computing, per sviluppare Software di Cloud Robotics è necessario avere un framework di sviluppo ed un'infrastruttura basata su di esso.
