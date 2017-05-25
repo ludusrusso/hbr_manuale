@@ -1,4 +1,4 @@
 # Summary
 
 * [Introduzione](README.md)
-* [Cosa è la Cloud Robotics?](chapter1.md)
+* [Configurazione Raspberry Pi](chapter1.md)
