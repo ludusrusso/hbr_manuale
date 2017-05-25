@@ -11,8 +11,6 @@ La procedura di configurazione della scheda permette, essenzialmente, ci copiare
 
 Quello che andremo a fare, sarà quindi scaricare e clonare all'interno della SD che andremo ad inserire nel Raspberry, l'immagine del sistema operativo HBrain, che è il sistema operativo sviluppato da HotBlack Robotics, già configurato per funzionare con ROS e la piattaforma **HBR**.
 
-Questa procedura cambia in base al sistema operativo utilizzato (Windows, Linux o macOS). Vediamo quindi come fare.
-
 
 ###Download dell'immagine della SD
 Per scaricare l'immagine SD accedete a questo [link](https://sourceforge.net/projects/hbrain/) e scaricare l'ultima versione del'immagine cliccando sul tasto **Download**.
@@ -23,14 +21,24 @@ Il download richiederà un po' di tempo, in quanto il file da scaricare pesa pi�
 
 Una volta scaricato, è necessario coinfigurarlo seguendo la guida relativa al vostro sistema operativo, seguendo le guide sotto.
 
-###Installazione immagine SD su Windows 
+###Donwload del programma **Etcher** per la scrittura della SD 
 
-La procedura di installazione su Windows è molto facile.
+[Etcher](https://etcher.io) è un programma multipiattaforma che semplifica la procedura di scrittura di una SD a partire da un'immagine! Etcher è multipiattaforma, e suporta Windows, Linux e macOS. Per scaricarlo, accedete al sito [etcher.io](https://etcher.io) e cliccate sul tasto download. Quindi eseguite l'installazione lanciando il file scaricato.
 
-###Installazione immagine SD su macOS
+![Sito Etcher](img/chapter1/etcherio.png)
 
-TBW
+###Scrittura della SD
 
-###Installazione immagine SD su Linux
+Avrete ora tutto il necessario per eseguire la procedura di scrittura, ovviamente servirà avere in possesso una scheda SD (da almeno 4GB di spazio).
 
-TBW
+Inserite la SD nel computer e aprite il programma Etcher. 
+![Uso di Etcher](img/chapter1/etcher1.png)
+
+Selezionate l'immagine della scheda SD scaricata precedentemente.
+
+![Uso di Etcher](img/chapter1/etcher2.png)
+
+Selezionate la scheda SD su cui scrivere l'immagine
+> per evirare confusioni, scollegate tutti gli altri dispositivi connessi al computer.
+
+A questo punto, potete flashare la SD. Il tempo di scrittura può durare da uno a 10 minuti in base alla velocità di scrittura della SD.
