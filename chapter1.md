@@ -66,7 +66,7 @@ Clicchiamo sul tasto **cerca robot**![](/assets/Schermata 2017-05-26 alle 14.06.
 
 ### Configurare una rete WiFi
 
-Per poter utilizzare 
+Per poter utilizzare
 
 ### Settare un nome del Raspberry \(opzionale\)
 
