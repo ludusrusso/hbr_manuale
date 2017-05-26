@@ -66,13 +66,19 @@ Clicchiamo sul tasto **cerca robot**![](/assets/Schermata 2017-05-26 alle 14.06.
 
 ### Configurare una rete WiFi
 
-Per poter utilizzare
+Per poter utilizzare il Raspberry Pi senza il cavo Ethernet, è importante configurare correttamente la rete WiFi. Per farlo, una volta connessi al robot, accediamo al tab **Robot **e poi premiamo sul tasto **Configure Wifi**.![](/assets/Schermata 2017-05-26 alle 16.16.03.png)Nella schermata che vi appare, vedrete che esiste già la configurazione per la rete **dotbot**, che è una rete WiFi a cui i nuovi robot si collegano di default. Potete tranquillamente cancellare la rete, premendo sul tasto **clean**, o decidere di tenerla attiva.
+
+A questo punto, premente sul pulsante **configure** di uno dei blocchi liberi \(di default, il sistema può memorizzare fino ad un massimo di 5 wifi\).![](/assets/Schermata 2017-05-26 alle 16.17.27.png)Vi apparirà, quindi, una nuova schermata che eseguirà automaticamente la scansione delle reti wifi disponibili. Selezionate la rete alla quale volete connettervi cliccando sul tasto **select** accanto al nome della rete.![](/assets/Schermata 2017-05-26 alle 16.17.37.png)Vi verrà quindi chiesto di inserire la password della rete. Inseriamola e premiamo sul tasto **Submit**.![](/assets/Schermata 2017-05-26 alle 16.17.50.png) 
+
+Il robot verificherà che la password inserita sia corretta, e quindi ritorneremo alla pagina iniziale in cui potrete vedere che la nuova rete wifi è stata inserita correttamente.
+
+![](/assets/Schermata 2017-05-26 alle 16.17.59.png)A questo punto, ritorniamo sul tab Robot e riavviamo il Robot premendo sul tasto **Reboot**. Durante il riavvio, staccate il cavo Ethernet: il robot si connetterà automaticamente alla rete configurata.
 
 ### Settare un nome del Raspberry \(opzionale\)
 
 Se si prevede di lavorare in ambienti con più di un robot connessi alla stessa rete, è importante cambiare nome al robot stesso in modo da poterlo distinguere dagli altri. È inoltre possibile cambiare nome al robot solo per gusto personale e per personalizzarlo.
 
-Per fare questo, dal pannello **Robot**, digitiamo
+Per fare questo, dal pannello **Robot**, digitiamo il nome desiderato nell'apposito pannello, e pr ![](/assets/Schermata 2017-05-26 alle 14.08.26.png)
 
 ### 
 
