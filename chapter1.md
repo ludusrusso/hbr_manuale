@@ -64,7 +64,11 @@ Clicchiamo sul tasto **cerca robot**![](/assets/Schermata 2017-05-26 alle 14.06.
 
 ![](/assets/Schermata 2017-05-26 alle 14.08.00.png)Una volta connessi al robot, refreshamo la pagina, in alto a sinistra apparirà un nuovo pulsante chiamato **Robot**. Clickando sul pulsante accederemo ad una nuova pagina di informazioni sul robot stesso. Siamo finalmente riusciti a connetterci al Robot.![](/assets/Schermata 2017-05-26 alle 14.08.07.png)
 
-### Settare un nome al Robot \(opzionale\)
+### Configurare una rete WiFi
+
+Per poter utilizzare 
+
+### Settare un nome del Raspberry \(opzionale\)
 
 Se si prevede di lavorare in ambienti con più di un robot connessi alla stessa rete, è importante cambiare nome al robot stesso in modo da poterlo distinguere dagli altri. È inoltre possibile cambiare nome al robot solo per gusto personale e per personalizzarlo.
 
