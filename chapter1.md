@@ -58,7 +58,19 @@ Per accedere alla piattaforma di HBR, è necessario prima di tutto registrarsi g
 
 Attacchiamo il Raspberry al nostro Router domestico \(con un cavo Ethernet\) e quindi colleghiamolo all'alimentazione.
 
-Apriamo il browser da un computer collegato alla stessa rete a cui abbiamo connesso il Raspberry Pi, e accediamo alla piattaforma di cloud robotics **HBR**, dalla pagina [http://www.hotblackrobotics.com/cloud](http://www.hotblackrobotics.com/cloud). 
+Apriamo il browser da un computer collegato alla stessa rete a cui abbiamo connesso il Raspberry Pi, e accediamo alla piattaforma di cloud robotics **HBR**, dalla pagina [http://www.hotblackrobotics.com/cloud](http://www.hotblackrobotics.com/cloud).
 
-Clicchiamo sul tasto **cerca robot**, 
+Clicchiamo sul tasto **cerca robot**![](/assets/Schermata 2017-05-26 alle 14.06.33.png)Se tutto va bene, dovremmo vedere apparire, nella tabella sottostante, un robot chiamato **hotbot**. Clickiamo quindi sul tasto **connect** accanto al nome del robot.
+
+![](/assets/Schermata 2017-05-26 alle 14.08.00.png)Una volta connessi al robot, refreshamo la pagina, in alto a sinistra apparirà un nuovo pulsante chiamato **Robot**. Clickando sul pulsante accederemo ad una nuova pagina di informazioni sul robot stesso. Siamo finalmente riusciti a connetterci al Robot.![](/assets/Schermata 2017-05-26 alle 14.08.07.png)
+
+### Settare un nome al Robot \(opzionale\)
+
+Se si prevede di lavorare in ambienti con più di un robot connessi alla stessa rete, è importante cambiare nome al robot stesso in modo da poterlo distinguere dagli altri. È inoltre possibile cambiare nome al robot solo per gusto personale e per personalizzarlo.
+
+Per fare questo, dal pannello **Robot**, digitiamo
+
+### 
+
+
 
