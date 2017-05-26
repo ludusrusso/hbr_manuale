@@ -4,7 +4,7 @@ Questo capitolo è dedicato alla configurazione del Raspberry Pi per iniziare a 
 
 ## Scheda SD del Raspberry Pi
 
-Il primo passo, consiste nel configurare la scheda SD che contiene il sistema operativo **HBrain**.   
+Il primo passo, consiste nel configurare la scheda SD che contiene il sistema operativo **HBrain**.  
 La scheda SD è l'Hard Disk del Raspberry Pi. È il componente principale che abilita la parte software del Raspberry, ed è quindi essenziale per il funzionamento del sistema stesso. Un Raspberry Pi senza una scheda SD correttamente configurata semplicemente non funziona.
 
 La procedura di configurazione della scheda permette, essenzialmente, ci copiare all'interno della SD un sistema operativo già configurato e funzionante, a partire da una copia digitale di tale sistema \(detta immagine\). Ovviamente nulla vieta di crearsi il proprio sistema operativo, ma è un'operazione molto sconsigliata in quanto richiede forti competenze Linux.
@@ -31,7 +31,7 @@ Una volta scaricato, è necessario coinfigurarlo seguendo la guida relativa al v
 
 Avrete ora tutto il necessario per eseguire la procedura di scrittura, ovviamente servirà avere in possesso una scheda SD \(da almeno 4GB di spazio\).
 
-Inserite la SD nel computer e aprite il programma Etcher.   
+Inserite la SD nel computer e aprite il programma Etcher.  
 ![Uso di Etcher](img/chapter1/etcher1.png)
 
 Selezionate l'immagine della scheda SD scaricata precedentemente.
@@ -45,6 +45,16 @@ Selezionate la scheda SD su cui scrivere l'immagine
 A questo punto, potete flashare la SD. Il tempo di scrittura può durare da uno a 10 minuti in base alla velocità di scrittura della SD.
 
 Una volta che la procedura sarà completa, estrarre la SD ed inserirla all'interno del Raspberry Pi 3 Model B. Siamo pronti per configurare il sistema.
+
+
+
+## Colleghiamoci al Raspberry Pi da piattaforma HBR
+
+Inserita la scheda SD all'interno del Raspberry Pi 3 model B, vediamo insieme come collegarci ad esso tramite la piattaforma di Cloud Robotics. Al primo avvio, è necessario attaccarsi al Raspberry fisicamente da Ethernet. Tuttavia, una volta configurato correttamente il Wifi, il Raspberry sarà in grado di connettersi autonomamente alla rete domestica quando acceso.
+
+
+
+
 
 
 
