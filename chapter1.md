@@ -58,3 +58,7 @@ Per accedere alla piattaforma di HBR, è necessario prima di tutto registrarsi g
 
 Attacchiamo il Raspberry al nostro Router domestico \(con un cavo Ethernet\) e quindi colleghiamolo all'alimentazione.
 
+Apriamo il browser da un computer collegato alla stessa rete a cui abbiamo connesso il Raspberry Pi, e accediamo alla piattaforma di cloud robotics **HBR**, dalla pagina [http://www.hotblackrobotics.com/cloud](http://www.hotblackrobotics.com/cloud). 
+
+Clicchiamo sul tasto **cerca robot**, 
+
