@@ -8,9 +8,27 @@ In questo capitolo, impareremo le basi di ROS, implemetando passo passo dei semp
 
 ## Implementiamo un semplice Publisher
 
+```py
+from dotbot_ros import DotbotNode, Rate, Publisher
+from std_msgs.msg import String
 
+class Node(DotbotNode):
+    node_name = 'simple_publisher'
 
-## Implementiamo un semplice Subscriber
+    def setup(self):
+        self.loop_rate = Rate(1)
+        self.pub = Publisher('chatter', String)
+        self.cnt = 0
+
+    def loop(self):
+        s = "ciao: %s!"%self.cnt
+        self.pub.publish(s)
+        self.cnt += 1
+```
+
+## ![](/assets/Schermata 2017-05-28 alle 11.49.11.png)Implementiamo un semplice Subscriber
+
+## 
 
 
 
