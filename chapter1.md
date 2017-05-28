@@ -82,11 +82,7 @@ Per fare questo, dal pannello **Robot**, digitiamo il nome desiderato nell'appos
 
 > Attenzione: il nome deve contenere solo lettere e numeri, non deve contenere caratteri speciali o spazi
 
- ![](/assets/Schermata 2017-05-26 alle 14.08.26.png)A questo punto, riavviate il robot! Dalla prossima accensione, il nome del robot sarà quello settato da voi!
-
-
-
-### 
+![](/assets/Schermata 2017-05-26 alle 14.08.26.png)A questo punto, riavviate il robot! Dalla prossima accensione, il nome del robot sarà quello settato da voi!![](/assets/Schermata 2017-05-28 alle 11.02.46.png)
 
 
 
