@@ -28,7 +28,24 @@ class Node(DotbotNode):
 
 ## ![](/assets/Schermata 2017-05-28 alle 11.49.11.png)Implementiamo un semplice Subscriber
 
-## 
+```py
+from dotbot_ros import DotbotNode, Subscriber
+from std_msgs.msg import String
+
+from sys import stdout
+
+class Node(DotbotNode):
+    node_name = 'simple_subscriber'
+
+    def setup(self):
+        print 'starting'
+        stdout.flush()
+        self.chatter_sub = Subscriber('chatter', String, self.chatter_cb)
+
+    def chatter_cb(self, msg):
+        print 'Ho ricevuto: %s'%msg.data
+        stdout.flush()
+```
 
 
 
