@@ -7,7 +7,7 @@ Questo capitolo è dedicato alla configurazione del Raspberry Pi per iniziare a 
 Il primo passo, consiste nel configurare la scheda SD che contiene il sistema operativo **HBrain**.  
 La scheda SD è l'Hard Disk del Raspberry Pi. È il componente principale che abilita la parte software del Raspberry, ed è quindi essenziale per il funzionamento del sistema stesso. Un Raspberry Pi senza una scheda SD correttamente configurata semplicemente non funziona.
 
-La procedura di configurazione della scheda permette, essenzialmente, ci copiare all'interno della SD un sistema operativo già configurato e funzionante, a partire da una copia digitale di tale sistema \(detta immagine\). Ovviamente nulla vieta di crearsi il proprio sistema operativo, ma è un'operazione molto sconsigliata in quanto richiede forti competenze Linux.
+La procedura di configurazione della scheda permette, essenzialmente, di copiare all'interno della SD un sistema operativo già configurato e funzionante, a partire da una copia digitale di tale sistema \(detta immagine\). Ovviamente nulla vieta di crearsi il proprio sistema operativo, ma è un'operazione molto sconsigliata in quanto richiede forti competenze Linux.
 
 Quello che andremo a fare, sarà quindi scaricare e clonare all'interno della SD che andremo ad inserire nel Raspberry, l'immagine del sistema operativo HBrain, che è il sistema operativo sviluppato da HotBlack Robotics, già configurato per funzionare con ROS e la piattaforma **HBR**.
 
@@ -83,6 +83,4 @@ Per fare questo, dal pannello **Robot**, digitiamo il nome desiderato nell'appos
 > Attenzione: il nome deve contenere solo lettere e numeri, non deve contenere caratteri speciali o spazi
 
 ![](/assets/Schermata 2017-05-26 alle 14.08.26.png)A questo punto, riavviate il robot! Dalla prossima accensione, il nome del robot sarà quello settato da voi!![](/assets/Schermata 2017-05-28 alle 11.02.46.png)
-
-
 
