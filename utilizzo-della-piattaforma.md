@@ -107,7 +107,34 @@ Notate che la funzione `print` è sempre accoppiata con la riga `stdout.flush()`
 
 ### Miglioriamo il primo programma
 
-Una volta verificato il funzionamento, andiamo a migliorarlo in modo da stampare a video 
+Una volta verificato il funzionamento, andiamo a migliorarlo in modo da creare una variabile contatore che viene incrementata ad ogni ciclo, e stampare a video il valore di tale variabile.
+
+Per far questo, all'interno della funzione `setup`, definiamo una variabile `self.cnt` inizializzata a 0
+
+```py
+    def setup(self):
+        #...
+        self.cnt = 0
+```
+
+Notare che abbiamo definito tale variabile all'interno dell'oggetto `self`. In questo modo, abbiamo reso tale variabile visibile anche alle altre funzioni all'interno della classe `Node`, e quindi anche alla funzione `loop`.
+
+A questo punto, utilizziamo tale variabile nella funzione `loop`.
+
+```py
+    def loop(self):
+        print 'loop, cnt =', self.cnt
+        stdout.flush()
+        self.cnt += 1
+```
+
+Questa funzione stampa la stringa _loop, cnt = _concatenata al valore attuale di `self.cnt`, \(ricordarsi della chiamata di `stdout.flush()` dopo la chiamata di `print`\). Alla fine della funzione, il valore di `self.cnt` viene incrementato di 1.
+
+\*\*\*\*\* INSERIRE DEMO\*
+
+#### Esercizi
+
+* Modificare il 
 
 
 
