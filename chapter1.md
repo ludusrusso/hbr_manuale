@@ -19,7 +19,7 @@ Per scaricare l'immagine SD accedete a questo [link](https://sourceforge.net/pro
 
 Il download richiederà un po' di tempo, in quanto il file da scaricare pesa più di 1GB di dati.
 
-Una volta scaricato, è necessario coinfigurarlo seguendo la guida relativa al vostro sistema operativo, seguendo le guide sotto.
+Una volta scaricato, è necessario configurarlo seguendo seguendo le guide sotto.
 
 ### Donwload del programma **Etcher** per la scrittura della SD
 
@@ -75,7 +75,6 @@ A questo punto, premente sul pulsante **configure** di uno dei blocchi liberi \(
 
 Il robot verificherà che la password inserita sia corretta, a connessione avvenuta sarete reindirizzati alla pagina iniziale in cui potrete vedere che la nuova rete wifi è stata inserita correttamente.
 
-  
 ![](/assets/Schermata 2017-05-26 alle 16.17.59.png)A questo punto, ritorniamo sul tab Robot e riavviamo il Robot premendo sul tasto **Reboot**. Durante il riavvio, staccate il cavo Ethernet: il robot si connetterà automaticamente alla rete configurata.
 
 ### Settare un nome del Raspberry \(opzionale\)
