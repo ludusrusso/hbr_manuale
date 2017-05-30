@@ -31,3 +31,30 @@ Ogni tipo di messaggio si indica con la seguente notazione `<nome pacchetto>/<no
 
 
 
+
+
+## Scriviamo il nostro primo programma
+
+Accediamo alla [piattaforma HBR](http://www.hotblackrobotics.com/cloud/index) e apriamo il tab **Sketches**. Creiamo quindi un nuovo programma chiamato **first\_sketch** ed editiamolo.
+
+All'interno del file ci sarà un codice pre impostato che può essere usato come scheletro di partenza. Vediamo come funziona
+
+```py
+import dotbot_ros
+from sys import stdout
+
+class Node(dotbot_ros.DotbotNode):
+    node_name = 'node'
+
+    def setup(self):
+        print 'starting'
+        stdout.flush()
+        self.loop_rate = dotbot_ros.Rate(10)
+
+    def loop(self):
+        print 'loop'
+        stdout.flush()
+```
+
+
+
