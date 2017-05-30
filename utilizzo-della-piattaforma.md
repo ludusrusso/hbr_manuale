@@ -97,3 +97,17 @@ La funzione `loop`, invece, viene eseguita ciclicamente \(se la variabile `self.
 
 Notate che la funzione `print` è sempre accoppiata con la riga `stdout.flush()`, questo è necessario per forzare l'interprete python a flushare a video \(remoto\) il testo di print, altrimenti il testo viene visualizzato a video solo dopo la fine dell'esecuzione del programma.
 
+\*\*\*\*\* INSERIRE DEMO\*
+
+#### Esercizi
+
+* Modificate la frequenza di esecuzione del programma, eseguitelo a 1Hz, 0.5Hz, 2Hz, 30Hz;
+* Modificate il nome del nodo \(attenzione, in ROS i nomi non possono avere spazi e caratteri speciali\);
+* Modificate il testo stampato a video.
+
+### Miglioriamo il primo programma
+
+Una volta verificato il funzionamento, andiamo a migliorarlo in modo da stampare a video 
+
+
+
