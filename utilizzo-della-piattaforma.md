@@ -66,7 +66,7 @@ In seguito definiamo la classe `Node` ereditando da `dotbot_ros.DotbotNode` . Qu
 ```py
 class Node(dotbot_ros.DotbotNode):
     node_name = 'node'
-    
+
     def setup(self):
         #...
 
@@ -87,7 +87,7 @@ La funzione `setup`, come per **Arduino**, è una funzione di inizializzazione c
 
 In questo caso, la funzione si occupa di stampare su shell la stringa _starting_ e di inizializzare la frequenza a cui eseguire la funzione loop. In questo caso, `loop` viene eseguita ciclicamente ad una frequenza di 10Hz `self.loop_rate = dotbot_ros.Rate(10)`. Attenzione, la variabile `self.loop_rate` deve essere definita, altrimenti la funzione `loop` non verrà mai eseguita.
 
-La funzione `loop`, invece, viene eseguita ciclicamente \(se la variabile `self.loop_rate`è correttamente definita\). Questa si occupa di stampare su shell la stringa _loop_. 
+La funzione `loop`, invece, viene eseguita ciclicamente \(se la variabile `self.loop_rate`è correttamente definita\). Questa si occupa di stampare su shell la stringa _loop_.
 
 ```py
     def loop(self):
@@ -95,5 +95,5 @@ La funzione `loop`, invece, viene eseguita ciclicamente \(se la variabile `self.
         stdout.flush()
 ```
 
-
+Notate che la funzione `print` è sempre accoppiata con la riga `stdout.flush()`, questo è necessario per forzare l'interprete python a flushare a video \(remoto\) il testo di print, altrimenti il testo viene visualizzato a video solo dopo la fine dell'esecuzione del programma.
 
