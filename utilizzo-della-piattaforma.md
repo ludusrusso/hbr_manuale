@@ -29,15 +29,11 @@ I **Tipi di messaggio** descrivono le strutture dati in cui vengono impacchettat
 
 Ogni tipo di messaggio si indica con la seguente notazione `<nome pacchetto>/<nome tipo>` ad esempio `std_msgs/Uint16` .
 
-
-
-
-
 ## Scriviamo il nostro primo programma
 
 Accediamo alla [piattaforma HBR](http://www.hotblackrobotics.com/cloud/index) e apriamo il tab **Sketches**. Creiamo quindi un nuovo programma chiamato **first\_sketch** ed editiamolo.
 
-All'interno del file ci sarà un codice pre impostato che può essere usato come scheletro di partenza. Vediamo come funziona
+All'interno del file ci sarà un codice pre impostato che può essere usato come scheletro di partenza.
 
 ```py
 import dotbot_ros
@@ -51,6 +47,49 @@ class Node(dotbot_ros.DotbotNode):
         stdout.flush()
         self.loop_rate = dotbot_ros.Rate(10)
 
+    def loop(self):
+        print 'loop'
+        stdout.flush()
+```
+
+Di seguito analizziamo il codice in dettaglio.
+
+Le prime due righe servono per importare moduli all'interno del programma. In particolare, importiamo interamente il modulo `dotbot_ros` e importiamo l'oggetto `stdout` dal modulo `sys` .
+
+```py
+import dotbot_ros
+from sys import stdout
+```
+
+In seguito definiamo la classe `Node` ereditando da `dotbot_ros.DotbotNode` . Questa classe è il punto di partenza della codice ROS, ed, al suo interno, devono essere definite le funzioni `setup` e `loop`.
+
+```py
+class Node(dotbot_ros.DotbotNode):
+    node_name = 'node'
+    
+    def setup(self):
+        #...
+
+    def loop(self): 
+        #...
+```
+
+La variabile di classe `node_name = 'node'` definisce il nome \(univoco\) del nodo all'interno del mondo ROS. Vedremo in seguito qual è l'effetto di questa variabile.
+
+La funzione `setup`, come per **Arduino**, è una funzione di inizializzazione che viene eseguita all'avvio del programma. Lo scopo di questa funzione è inizializzare le variabili e gli oggetti che verranno poi eseguiti durante il programma.
+
+```py
+    def setup(self):
+        print 'starting'
+        stdout.flush()
+        self.loop_rate = dotbot_ros.Rate(10)
+```
+
+In questo caso, la funzione si occupa di stampare su shell la stringa _starting_ e di inizializzare la frequenza a cui eseguire la funzione loop. In questo caso, `loop` viene eseguita ciclicamente ad una frequenza di 10Hz `self.loop_rate = dotbot_ros.Rate(10)`. Attenzione, la variabile `self.loop_rate` deve essere definita, altrimenti la funzione `loop` non verrà mai eseguita.
+
+La funzione `loop`, invece, viene eseguita ciclicamente \(se la variabile `self.loop_rate`è correttamente definita\). Questa si occupa di stampare su shell la stringa _loop_. 
+
+```py
     def loop(self):
         print 'loop'
         stdout.flush()
