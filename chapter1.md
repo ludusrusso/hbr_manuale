@@ -48,7 +48,7 @@ Una volta che la procedura sarà completa, estrarre la SD ed inserirla all'inter
 
 ## Configurazione del Raspberry Pi
 
-Inserita la scheda SD all'interno del Raspberry Pi 3 model B, vediamo insieme come collegarci ad esso tramite la piattaforma di Cloud Robotics. Al primo avvio, è necessario attaccarsi al Raspberry fisicamente da Ethernet. Tuttavia, una volta configurato correttamente il Wifi, il Raspberry sarà in grado di connettersi autonomamente alla rete domestica quando acceso.
+Inserita la scheda SD all'interno del Raspberry Pi 3 model B, vediamo insieme come collegarci ad esso tramite la piattaforma di Cloud Robotics. Al primo avvio, è necessario collegarsi fisicamente al Raspberry mediante cavo Ethernet. Tuttavia, una volta configurato correttamente il Wifi, il Raspberry sarà in grado di connettersi autonomamente alla rete domestica quando acceso.
 
 ### Registrazione alla piattaforma di Cloud Robotics
 
@@ -56,7 +56,7 @@ Per accedere alla piattaforma di HBR, è necessario prima di tutto registrarsi g
 
 ### Prima connessione
 
-Attacchiamo il Raspberry al nostro Router domestico \(con un cavo Ethernet\) e quindi colleghiamolo all'alimentazione.
+Colleghiamo il Raspberry al nostro Router domestico \(con un cavo Ethernet\) e quindi colleghiamolo all’alimentazione.
 
 Apriamo il browser da un computer collegato alla stessa rete a cui è stato collegato il Raspberry Pi, e accediamo alla piattaforma di cloud robotics **HBR**, dalla pagina [http://www.hotblackrobotics.com/cloud](http://www.hotblackrobotics.com/cloud).
 
