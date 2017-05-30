@@ -9,7 +9,7 @@ La scheda SD è l'Hard Disk del Raspberry Pi. È il componente principale che ab
 
 La procedura di configurazione della scheda permette, essenzialmente, di copiare all'interno della SD un sistema operativo già configurato e funzionante, a partire da una copia digitale di tale sistema \(detta immagine\). Ovviamente nulla vieta di crearsi il proprio sistema operativo, ma è un'operazione molto sconsigliata in quanto richiede forti competenze Linux.
 
-Quello che andremo a fare, sarà quindi scaricare e clonare all'interno della SD che andremo ad inserire nel Raspberry, l'immagine del sistema operativo HBrain, che è il sistema operativo sviluppato da HotBlack Robotics, già configurato per funzionare con ROS e la piattaforma **HBR**.
+Quello che andremo a fare, sarà quindi scaricare e clonare all'interno della SD da inserire nel Raspberry, l'immagine del sistema operativo HBrain, che è il sistema operativo sviluppato da HotBlack Robotics, già configurato per funzionare con ROS e la piattaforma **HBR**.
 
 ### Download dell'immagine della SD
 
@@ -42,7 +42,7 @@ Selezionate la scheda SD su cui scrivere l'immagine
 
 > per evirare confusioni, scollegate tutti gli altri dispositivi connessi al computer.
 
-A questo punto, potete flashare la SD. Il tempo di scrittura può durare da uno a 10 minuti in base alla velocità di scrittura della SD.
+Giunti a questo punto, premete sul pulsante configure di uno dei blocchi liberi \(di default, il sistema può memorizzare fino ad un massimo di 5 wifi\).
 
 Una volta che la procedura sarà completa, estrarre la SD ed inserirla all'interno del Raspberry Pi 3 Model B. Siamo pronti per configurare il sistema.
 
@@ -58,11 +58,14 @@ Per accedere alla piattaforma di HBR, è necessario prima di tutto registrarsi g
 
 Attacchiamo il Raspberry al nostro Router domestico \(con un cavo Ethernet\) e quindi colleghiamolo all'alimentazione.
 
-Apriamo il browser da un computer collegato alla stessa rete a cui abbiamo connesso il Raspberry Pi, e accediamo alla piattaforma di cloud robotics **HBR**, dalla pagina [http://www.hotblackrobotics.com/cloud](http://www.hotblackrobotics.com/cloud).
+Apriamo il browser da un computer collegato alla stessa rete a cui è stato collegato il Raspberry Pi, e accediamo alla piattaforma di cloud robotics **HBR**, dalla pagina [http://www.hotblackrobotics.com/cloud](http://www.hotblackrobotics.com/cloud).
 
 Clicchiamo sul tasto **cerca robot**![](/assets/Schermata 2017-05-26 alle 14.06.33.png)Se tutto va bene, dovremmo vedere apparire, nella tabella sottostante, un robot chiamato **hotbot**. Clickiamo quindi sul tasto **connect** accanto al nome del robot.
 
-![](/assets/Schermata 2017-05-26 alle 14.08.00.png)Una volta connessi al robot, refreshamo la pagina, in alto a sinistra apparirà un nuovo pulsante chiamato **Robot**. Clickando sul pulsante accederemo ad una nuova pagina di informazioni sul robot stesso. Siamo finalmente riusciti a connetterci al Robot.![](/assets/Schermata 2017-05-26 alle 14.08.07.png)
+![](/assets/Schermata 2017-05-26 alle 14.08.00.png)Una volta connessi al robot, ricarichiamo la pagina.
+
+In alto a destra della pagina web, accanto al nome dell’utente connesso apparirà il pulsante “Robot” che permetterà l’accesso alla pagina informativa sul robot che avete appena connesso.  
+![](/assets/Schermata 2017-05-26 alle 14.08.07.png)
 
 ### Configurare una rete WiFi
 
@@ -70,8 +73,9 @@ Per poter utilizzare il Raspberry Pi senza il cavo Ethernet, è importante confi
 
 A questo punto, premente sul pulsante **configure** di uno dei blocchi liberi \(di default, il sistema può memorizzare fino ad un massimo di 5 wifi\).![](/assets/Schermata 2017-05-26 alle 16.17.27.png)Vi apparirà, quindi, una nuova schermata che eseguirà automaticamente la scansione delle reti wifi disponibili. Selezionate la rete alla quale volete connettervi cliccando sul tasto **select** accanto al nome della rete.![](/assets/Schermata 2017-05-26 alle 16.17.37.png)Vi verrà quindi chiesto di inserire la password della rete. Inseriamola e premiamo sul tasto **Submit**.![](/assets/Schermata 2017-05-26 alle 16.17.50.png)
 
-Il robot verificherà che la password inserita sia corretta, e quindi ritorneremo alla pagina iniziale in cui potrete vedere che la nuova rete wifi è stata inserita correttamente.
+Il robot verificherà che la password inserita sia corretta, a connessione avvenuta sarete reindirizzati alla pagina iniziale in cui potrete vedere che la nuova rete wifi è stata inserita correttamente.
 
+  
 ![](/assets/Schermata 2017-05-26 alle 16.17.59.png)A questo punto, ritorniamo sul tab Robot e riavviamo il Robot premendo sul tasto **Reboot**. Durante il riavvio, staccate il cavo Ethernet: il robot si connetterà automaticamente alla rete configurata.
 
 ### Settare un nome del Raspberry \(opzionale\)
