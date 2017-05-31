@@ -128,13 +128,18 @@ A questo punto, utilizziamo tale variabile nella funzione `loop`.
         self.cnt += 1
 ```
 
-Questa funzione stampa la stringa _loop, cnt = _concatenata al valore attuale di `self.cnt`, \(ricordarsi della chiamata di `stdout.flush()` dopo la chiamata di `print`\). Alla fine della funzione, il valore di `self.cnt` viene incrementato di 1.
+Questa funzione stampa la stringa \_loop, cnt = \_concatenata al valore attuale di `self.cnt`, \(ricordarsi della chiamata di `stdout.flush()` dopo la chiamata di `print`\). Alla fine della funzione, il valore di `self.cnt` viene incrementato di 1.
 
 \*\*\*\*\* INSERIRE DEMO\*
 
 #### Esercizi
 
-* Modificare il 
+* Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga incrementato di 5
+* Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga decrementato di 2
+
+### Implementiamo un Publisher
+
+Siamo ora pronti a 
 
 
 
