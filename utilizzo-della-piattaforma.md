@@ -134,12 +134,48 @@ Questa funzione stampa la stringa \_loop, cnt = \_concatenata al valore attuale 
 
 #### Esercizi
 
-* Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga incrementato di 5
-* Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga decrementato di 2
+* Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga incrementato di 5;
+* Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga decrementato di 2.
 
 ### Implementiamo un Publisher
 
-Siamo ora pronti a 
+Siamo ora pronti ad implementare un nodo publisher, cioè un nodo che pubblica su un topic ROS. Per farlo, dobbiamo fare 3 operazioni:
+
+1. Importare all'interno del programma il tipo di messaggio che andremo ad utilizzare;
+2. Creare un oggetto publisher, che si occupa di gestire la comunicazione con il topic;
+3. Pubblicare i dati nel loop.
+
+Avendo già a disposizione la variabile `self.cnt`, usiamo questa per generare i dati da pubblicare nel topic. Pubblicheremo quindi dati di tipo intero nel topic e, per questo motivo, useremo il tipi `std_msgs/Int32`.
+
+Per importare questo tipo, aggiungiamo la seguente riga all'inizio del programma \(cove ci sono gli altri import\):
+
+```py
+from std_msgs.msg import Int32
+```
+
+A questo punto, siamo pronti a creare il pubblicatore: infatti la costruzione di questo oggetto richiede due parametri:
+
+* il nome del topic su cui deve pubblicare i dati;
+* il tipo di messaggi che questo topic gestisce.
+
+All'interno della funzione setup, quindi, creiamo la variabile `self.pub_cnt` nel seguente modo:
+
+```py
+    def setup(self): 
+        #... 
+        self.pub_cnt = dotbot_ros.Publisher('counter', Int32)
+```
+
+Si noti che, anche in questo caso, utilizzo l'oggetto `self` per poter utilizzare il pubblicatore anche all'interno della funzione `loop`. 
+
+A questo punto, non ci resta che pubblicate la variabile `self.cnt` all'interno di ogni ciclo, andando ad aggiungere questa linea di codice all'interno della funzione `loop` \(prima di incrementare il valore di `self.cnt`\):
+
+```py
+    def loop(self): 
+        #...
+        self.pub_cnt.publish(self.cnt)
+        self.cnt += 1
+```
 
 
 
