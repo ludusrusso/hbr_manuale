@@ -97,7 +97,19 @@ La funzione `loop`, invece, viene eseguita ciclicamente \(se la variabile `self.
 
 Notate che la funzione `print` è sempre accoppiata con la riga `stdout.flush()`, questo è necessario per forzare l'interprete python a flushare a video \(remoto\) il testo di print, altrimenti il testo viene visualizzato a video solo dopo la fine dell'esecuzione del programma.
 
-\*\*\*\*\* INSERIRE DEMO\*
+#### Eseguire il programma
+
+> Prima di eseguire un qualsiasi programma, dobbiamo essere collegati al robot.
+
+Per eseguire il nodo, premiamo il tasto **Run** all'interno dell'applicazione, avendo cura di essere già connessi ad un robot.![](/assets/Schermata 2017-06-01 alle 12.00.172.png)Se tutto va a buon fine, si aprirà una finestra con l'output del programma. Come potete vedere, il programma scriverà sulla shell la stringa _starting _seguita poi dalle stringe _loop _ad una frequenza di 10Hz. 
+
+asd![](/assets/Schermata 2017-06-01 alle 12.00.20.png)Apriamo quindi un'altra finestra sul tab ROS \(in alto\) per accedere alla ROS console. Da qui possiamo notare che è apparso un nuovo nodo, chiamato `/<nome del vostro robot>/node`. Per stoppare il nodo, potete premere il tasto **kill node** riferito al nodo in questione. 
+
+![](/assets/Schermata 2017-06-01 alle 12.00.28.png)Una volta stoppato, ritornando alla finestra del programma, vedrete che il nodo ha finito di stampare a video, e che è apparsa la linea **shutdown request: user request**, che indica il fatto che il nodo è stato stoppato dall'utente.![](/assets/Schermata 2017-06-01 alle 12.00.39.png)
+
+> Prima di rieseguire un programma, assicuratevi di aver stoppato il programma in esecuzione.
+
+\*\*\*\*\* INSERIRE DEMO
 
 #### Esercizi
 
@@ -166,7 +178,7 @@ All'interno della funzione setup, quindi, creiamo la variabile `self.pub_cnt` ne
         self.pub_cnt = dotbot_ros.Publisher('counter', Int32)
 ```
 
-Si noti che, anche in questo caso, utilizzo l'oggetto `self` per poter utilizzare il pubblicatore anche all'interno della funzione `loop`. 
+Si noti che, anche in questo caso, utilizzo l'oggetto `self` per poter utilizzare il pubblicatore anche all'interno della funzione `loop`.
 
 A questo punto, non ci resta che pubblicate la variabile `self.cnt` all'interno di ogni ciclo, andando ad aggiungere questa linea di codice all'interno della funzione `loop` \(prima di incrementare il valore di `self.cnt`\):
 
