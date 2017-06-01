@@ -101,15 +101,13 @@ Notate che la funzione `print` è sempre accoppiata con la riga `stdout.flush()`
 
 > Prima di eseguire un qualsiasi programma, dobbiamo essere collegati al robot.
 
-Per eseguire il nodo, premiamo il tasto **Run** all'interno dell'applicazione, avendo cura di essere già connessi ad un robot.![](/assets/Schermata 2017-06-01 alle 12.00.172.png)Se tutto va a buon fine, si aprirà una finestra con l'output del programma. Come potete vedere, il programma scriverà sulla shell la stringa _starting _seguita poi dalle stringe _loop _ad una frequenza di 10Hz. 
+Per eseguire il nodo, premiamo il tasto **Run** all'interno dell'applicazione, avendo cura di essere già connessi ad un robot.![](/assets/Schermata 2017-06-01 alle 12.00.172.png)Se tutto va a buon fine, si aprirà una finestra con l'output del programma. Come potete vedere, il programma scriverà sulla shell la stringa \_starting \_seguita poi dalle stringe \_loop \_ad una frequenza di 10Hz.
 
-asd![](/assets/Schermata 2017-06-01 alle 12.00.20.png)Apriamo quindi un'altra finestra sul tab ROS \(in alto\) per accedere alla ROS console. Da qui possiamo notare che è apparso un nuovo nodo, chiamato `/<nome del vostro robot>/node`. Per stoppare il nodo, potete premere il tasto **kill node** riferito al nodo in questione. 
+asd![](/assets/Schermata 2017-06-01 alle 12.00.20.png)Apriamo quindi un'altra finestra sul tab ROS \(in alto\) per accedere alla ROS console. Da qui possiamo notare che è apparso un nuovo nodo, chiamato `/<nome del vostro robot>/node`. Per stoppare il nodo, potete premere il tasto **kill node** riferito al nodo in questione.
 
 ![](/assets/Schermata 2017-06-01 alle 12.00.28.png)Una volta stoppato, ritornando alla finestra del programma, vedrete che il nodo ha finito di stampare a video, e che è apparsa la linea **shutdown request: user request**, che indica il fatto che il nodo è stato stoppato dall'utente.![](/assets/Schermata 2017-06-01 alle 12.00.39.png)
 
 > Prima di rieseguire un programma, assicuratevi di aver stoppato il programma in esecuzione.
-
-\*\*\*\*\* INSERIRE DEMO
 
 #### Esercizi
 
@@ -140,16 +138,18 @@ A questo punto, utilizziamo tale variabile nella funzione `loop`.
         self.cnt += 1
 ```
 
-Questa funzione stampa la stringa \_loop, cnt = \_concatenata al valore attuale di `self.cnt`, \(ricordarsi della chiamata di `stdout.flush()` dopo la chiamata di `print`\). Alla fine della funzione, il valore di `self.cnt` viene incrementato di 1.
+Questa funzione stampa la stringa _loop, cnt = _ concatenata al valore attuale di `self.cnt`, \(ricordarsi della chiamata di `stdout.flush()` dopo la chiamata di `print`\). Alla fine della funzione, il valore di `self.cnt` viene incrementato di 1.
 
-\*\*\*\*\* INSERIRE DEMO\*
+#### Eseguire il programma
+
+Come per il punto precedente, eseguiamo il programma. Noteremo che, a differenza di prima, il loop stamperà una stringa diversa ad ogni ciclo, in base al valore del contatore.![](/assets/Schermata 2017-06-01 alle 13.55.06.png)Ricordiamoci di killare il nodo prima di passare ai punti successivi del tutorial.
 
 #### Esercizi
 
 * Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga incrementato di 5;
 * Modificare il programma in modo che, ad ogni ciclo, `self.cnt` venga decrementato di 2.
 
-### Implementiamo un Publisher
+### Implementiamo un semplice Publisher
 
 Siamo ora pronti ad implementare un nodo publisher, cioè un nodo che pubblica su un topic ROS. Per farlo, dobbiamo fare 3 operazioni:
 
@@ -189,5 +189,91 @@ A questo punto, non ci resta che pubblicate la variabile `self.cnt` all'interno 
         self.cnt += 1
 ```
 
+#### Eseguire il programma
 
+Eseguendo il programma, l'output su shell sarà esattamente identico a quello precedente. Tuttavia, accedendo al tab **ROS** \(dopo aver aggiornato la pagina\), noteremo la presenza di un nuovo topic chiamato `/<nome robot>/couter` , Il cui tipo è `std_msgs/Int32`. Cliccando sul tasto **echo** in corrispondenza di questo topic, apparirà un tab che farà vedere i messaggi scambiati all'interno del topic stesso.![](/assets/Schermata 2017-06-01 alle 13.58.56.png)Si noti che i messaggi inviati non contengono direttamente il numero, ma sono una struttura con all'interno un elemento \(data\) in cui viene inserito il valore del numero inviato. La maggior parte dei messaggi nel pacchetto `std_msgs` sono definiti in questo modo.
+
+### Implementiamo un semplice Subscriber
+
+A questo punto, sappiamo come inviare dati all'interno del mondo ROS. Vediamo ora il task complementare, cioè la ricezione dei dati per mezzo dell'oggetto subscriver.
+
+Creiamo quindi un altro programma, chiamato simple\_subscriber, all'interno della piattaforma HBR. Andiamo quindi a lavorare all'interno del programma.
+
+Questo programma dovrà semplicemente sottoscriversi al topic `couter` e stampare a video il valore dei messaggi ricevuti. Per questo motivo, possiamo rimuovere la funzione `loop`  \(e di conseguenza la variabile `self.loop_rate`\) dal codice.
+
+Cambiamo inoltre il nome del nono in `simple_pub`, in modo da evitare conflitti con il nodo precedente.
+
+```py
+import dotbot_ros
+from sys import stdout
+class Node(dotbot_ros.DotbotNode):
+    node_name = 'simple_pub'
+
+    def setup(self):
+        print 'starting'
+        stdout.flush()
+```
+
+Dobbiamo quindi implementare una funzione che si arriva solamente nel momento in cui un nuovo messaggio viene inviato sul topic. Per far questo, ci viene in aiuto una tecnica di programmazione chiamata **callback**.
+
+Definiziamo una nuova funzione \(all'interno dell'oggetto `Node`\) chiamata coutner\_cb, come segue
+
+```py
+   def counter_cb(self, msg):
+        print 'ho ricevuto', msg.data
+        stdout.flush()
+```
+
+Questa funzione prende due parametri. Il primo \(obbligatori in python\) è `self`, e serve semplicemente per permettere a questa funzione di accedere a variabili definite in altre funzioni. Il secondo argomento, `msg`, sarà riempito automaticamente da ROS con il messaggio inviato attraverso il topic. 
+
+L'ultimo passaggio è quello di connettere questa funzione al topic `counter` per mezzo di un **Subscriber**.
+
+Per far questo, all'interno della funzione setup, definiamo un oggetto **Subscriber **come segue:
+
+```py
+#...
+from std_msgs.msg import Int32
+
+class Node(dotbot_ros.DotbotNode):
+    node_name = 'simple_pub'
+
+    def setup(self):
+        #...
+        self.sub_cnt = dotbot_ros.Subscriber('counter', Int32, self.counter_cb)
+```
+
+Il costruttore di `Subscriber` prende 3 argomenti:
+
+* il nome del topic a cui si deve sottoscrivere
+* il tipo di messaggio del topic
+* la funzione da chiamare quando un messaggio viene ricevuto.
+
+Ricordiamoci di importare il tipo `Int32`, come visto precedentemente.
+
+Il codice completo del programma è quindi il seguente:
+
+```py
+import dotbot_ros
+from sys import stdout
+
+from std_msgs.msg import Int32
+
+class Node(dotbot_ros.DotbotNode):
+    node_name = 'simple_pub'
+
+    def setup(self):
+        print 'starting'
+        stdout.flush()
+        self.sub_cnt = dotbot_ros.Subscriber('counter', Int32, self.counter_cb)
+
+    def counter_cb(self, msg):
+        print 'ho ricevuto', msg.data
+        stdout.flush()
+```
+
+#### Eseguire il programma
+
+Assicurandoci che il programma precedente sia in esecuzione, eseguiamo anche questo secondo programma appena implementato.
+
+Noterete che, quando il programma riceve un dato, viene stampato tale dato sulla console.![](/assets/Schermata 2017-06-01 alle 14.17.46.png)Inoltre, se provate a killare il nodo precedente, vi accorgerete che il secondo programma non farà più niente, in quanto nessuno gli invierà messaggi.
 
