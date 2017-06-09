@@ -1,4 +1,4 @@
-I Motori sono una delle parti essenziali dei robot. In questo tutorial, vedremo come Ë possibile in modo semplice ed intuitivo implementare un programma in Python che controlla i motori in base a comandi inviati via Wifi al Robot.
+I Motori sono una delle parti essenziali dei robot. In questo tutorial, vedremo come √® possibile in modo semplice ed intuitivo implementare un programma in Python che controlla i motori in base a comandi inviati via Wifi al Robot.
  
 ![](http://res.cloudinary.com/hbr/image/upload/v1484943808/IMG_20170120_172801_ufb9qy.jpg)
  
@@ -19,7 +19,7 @@ Le due fasi dei motori, vanno collegate, rispettivamente, ai GPIO 16,19 (sinistr
  
 ##Scriviamo il Codice
  
-Per utilizzare i motori, useremo l'oggetto `Robot` della libreria **gpiozero**, che Ë in grado di gestire il movimento di un semplice robot a due ruote. 
+Per utilizzare i motori, useremo l'oggetto `Robot` della libreria **gpiozero**, che √® in grado di gestire il movimento di un semplice robot a due ruote. 
  
 ##Programma di test
 Per prima cosa, testiamo che i motori funzionino lanciando un semplice programma di test. Questo programma sfrutta solo la funzione Setup 
@@ -33,7 +33,7 @@ self.robot = Robot(left=(16, 19), right=(20, 26))
  
 Una volta inizializzato, possiamo sfruttare le funzioni `Robot.left`, `Robot.right`, `Robot.forward` e `Robot.backward` per farlo muovere, rispettivamente, a destra, sinistra, avanti e indietro. E la funzione `Robot.stop`  per farlo fermare. Utilizziamo inoltre la funzione `time.sleep` della libreria `time` per far prolungare una certa azione nel tempo al robot.
  
-Il tutto, puÚ essere utilizzato come nel seguente programma per testare che i motori si muovino correttamente. Si noti che `time.sleep` chiede come unico parametro il tempo di attesa in secondi.
+Il tutto, pu√≤ essere utilizzato come nel seguente programma per testare che i motori si muovino correttamente. Si noti che `time.sleep` chiede come unico parametro il tempo di attesa in secondi.
  
 ```python
 import dotbot_ros
@@ -67,30 +67,30 @@ Se qualcosa non funziona, controllate che i motori siano alimentati e che le mas
  
 ##Sottoscriviamo ad un Topic ROS e usiamo le Callback
  
-Controllare il robot in questo modo non gli permette di essere nË pi˘ nË meno di un semplice giocattolo. Proviamo quindi a fare qualcosa di pi˘ interessante: controllare il robot attraverso un topic.
+Controllare il robot in questo modo non gli permette di essere n√® pi√π n√® meno di un semplice giocattolo. Proviamo quindi a fare qualcosa di pi√π interessante: controllare il robot attraverso un topic.
  
-Per farlo, sottoscriviamoci ad un topic chiamato `speed` di tipo ` std_msgs/Int16MultiArray`. Per farlo, per prima cosa, dobbiamo capire cosíË e come si usa una funzione di callback.
+Per farlo, sottoscriviamoci ad un topic chiamato `speed` di tipo ` std_msgs/Int16MultiArray`. Per farlo, per prima cosa, dobbiamo capire cos‚Äô√® e come si usa una funzione di callback.
  
 ###Funzioni di Callback
-Come gi‡ spiegato in precedenza, una funzione di **callback** Ë una funzione che non viene esplicitamente chiamata dal nostro programma, ma Ë automaticamente eseguita al verificarsi di un certo evento *asincrono* (cioË un evento che Ë generato al di fuori del nostro programma).
+Come gi√† spiegato in precedenza, una funzione di **callback** √® una funzione che non viene esplicitamente chiamata dal nostro programma, ma √® automaticamente eseguita al verificarsi di un certo evento *asincrono* (cio√® un evento che √® generato al di fuori del nostro programma).
  
-ROS sfrutta la callback come meccanismo per intercettare i messaggi inviati da su topic al quale il nodo Ë sottoscritto, e per processare i dati in modo immediato e istantaneo. In particolare, ROS chiede al programmatore di implementare una funzione di callback per ogni topic a cui il nodo Ë sottoscritto, e chiama automaticamente questa funzione ogni qualvolta un messaggio Ë invitato sul topic.
+ROS sfrutta la callback come meccanismo per intercettare i messaggi inviati da su topic al quale il nodo √® sottoscritto, e per processare i dati in modo immediato e istantaneo. In particolare, ROS chiede al programmatore di implementare una funzione di callback per ogni topic a cui il nodo √® sottoscritto, e chiama automaticamente questa funzione ogni qualvolta un messaggio √® invitato sul topic.
  
 ###Implementiamo la funzione di callback per il topic `speed`
-Ricapitolando: il nostro nodo si deve sottoscrivere al topic Speed, in cui vengono mandati comandi di velocit‡ per il robot. Ogni volta che un messaggio viene inviato sul topic, il nodo deve processare il messaggio e controllare i motori di conseguenza.
+Ricapitolando: il nostro nodo si deve sottoscrivere al topic Speed, in cui vengono mandati comandi di velocit√† per il robot. Ogni volta che un messaggio viene inviato sul topic, il nodo deve processare il messaggio e controllare i motori di conseguenza.
  
-Andiamo quindi ad implementare una funzione di callback, chiamata `on_speed`. Questa funzione (come tutte le funzioni di callback) avr‡ la seguente forma:
+Andiamo quindi ad implementare una funzione di callback, chiamata `on_speed`. Questa funzione (come tutte le funzioni di callback) avr√† la seguente forma:
  
 ```python
 def on_speed(self, msg):
     pass
 ```
  
-I due parametri che la funzione prende sono `self` (che rappresenta il nodo) e `msg`, che conterr‡ il messaggio scambiato dal topic.
+I due parametri che la funzione prende sono `self` (che rappresenta il nodo) e `msg`, che conterr√† il messaggio scambiato dal topic.
  
-Il messaggio `std_msgs/Int16MultiArray` contiene due valori (`data[0]` e `data[1]` rispettivamente per il motore destro e sinistro) che possono variare tra `-255` e `255`. La convenzione Ë che `255` Ë il massimo valore di velocit‡ in avanti, `-255` Ë il massimo all'indietro, `0` significa velocit‡ nulla e ogni altro valore Ë un valore intermedio tra queste velocit‡.
+Il messaggio `std_msgs/Int16MultiArray` contiene due valori (`data[0]` e `data[1]` rispettivamente per il motore destro e sinistro) che possono variare tra `-255` e `255`. La convenzione √® che `255` √® il massimo valore di velocit√† in avanti, `-255` √® il massimo all'indietro, `0` significa velocit√† nulla e ogni altro valore √® un valore intermedio tra queste velocit√†.
  
-Anche la classe `Robot` funziona in modo simile, ma i valori di velocit‡ delle ruote possono variare tra `-1.0` (massima velocit‡ all'indietro) e `1.0` (massima velocit‡ in avanti). La prima cosa che dovrÚ fare la funzione, quindi, Ë convertire questi valori e controllare che i valori finali siano nell'intervallo `[-1, 1]`.
+Anche la classe `Robot` funziona in modo simile, ma i valori di velocit√† delle ruote possono variare tra `-1.0` (massima velocit√† all'indietro) e `1.0` (massima velocit√† in avanti). La prima cosa che dovr√≤ fare la funzione, quindi, √® convertire questi valori e controllare che i valori finali siano nell'intervallo `[-1, 1]`.
  
 ```python
 def on_speed(self, msg):
@@ -110,7 +110,7 @@ def on_speed(self, msg):
         v_sx = -1.0
 ```
  
-Una volta generati i due comandi di velocit‡ (`v_dx` e `v_sx`), aggiungiamo una stringa per stamparne a video i valori finali utilizzando la funzione `print`:
+Una volta generati i due comandi di velocit√† (`v_dx` e `v_sx`), aggiungiamo una stringa per stamparne a video i valori finali utilizzando la funzione `print`:
  
 ```python
 def on_speed(self, msg):
@@ -128,9 +128,9 @@ Ora non ci resta che settare questi valori per far muovere le ruote. Per farlo, 
 self.robot.value = (v_sx, v_dx)
 ```
  
-In particolare, questo parametro vuole entrambi i comandi di velocit‡ contemporaneamente tra parentesi tonde (in python questa struttura si chiama `Tupla`) e, appena settato, automaticamente controlla le ruote con i valori richiesti!
+In particolare, questo parametro vuole entrambi i comandi di velocit√† contemporaneamente tra parentesi tonde (in python questa struttura si chiama `Tupla`) e, appena settato, automaticamente controlla le ruote con i valori richiesti!
  
-La funzione `on_speed`, quindi, verr‡ completata in questo modo:
+La funzione `on_speed`, quindi, verr√† completata in questo modo:
  
 ```python
 def on_speed(self, msg):
@@ -209,7 +209,7 @@ class Node(dotbot_ros.DotbotNode):
         self.robot.value = (v_dx, v_sx)
 ```
  
-Per inviare comandi di velocit‡, possiamo utilizzare l'app di test della nostra piattaforma.
+Per inviare comandi di velocit√†, possiamo utilizzare l'app di test della nostra piattaforma.
  
 ##Esercizi
  
@@ -221,15 +221,15 @@ La webapp joystic manda messaggi di tipo `geometry_msgs/Vector3` sul topic `joy`
  
 ###Esercizio 2: Stop del robot dopo N secondi
  
-Un problema che (in base alle preferenze) potrebbe essere risolto o no, rigurda il fatto che se viene impostato un comando di velocit‡, il robot continuer‡ a muoversi finchË non gli viene impostato il comando di velocit‡ `(0,0)`. 
+Un problema che (in base alle preferenze) potrebbe essere risolto o no, rigurda il fatto che se viene impostato un comando di velocit√†, il robot continuer√† a muoversi finch√® non gli viene impostato il comando di velocit√† `(0,0)`. 
  
-Si provi a migliorare il programma in modo che il robot si fermi dopo *N* secondi (sceliti da programmatore) dall'ultimo comando di velocit‡ ricevuto.
+Si provi a migliorare il programma in modo che il robot si fermi dopo *N* secondi (sceliti da programmatore) dall'ultimo comando di velocit√† ricevuto.
  
 Per farlo suggerisco di utilizzare i seguenti accorgimenti:
  
 1. Creare una variabile che contiene il tempo di esecuzione dell'ultima chiamata della funzione di callback. Usando la funzione `datetime.datetime.now`.
 2. Settare l'esecuzione della funzione `loop` a frequenza alta (ad esempio, 20Hz).
-3. Nella funzione loop, controllare che la differenza in secondi tra l'ultima volta che Ë stata eseguita la funzione `on_speed` e il tempo attuale sia maggiore di N
+3. Nella funzione loop, controllare che la differenza in secondi tra l'ultima volta che √® stata eseguita la funzione `on_speed` e il tempo attuale sia maggiore di N
 4. In caso affermativo, utilizzare la funzione `Robot.stop` per stoppare il robot.
  
 Vi riporto, sotto, un esempio per ottenere la differenza in secondi tra due tempi
