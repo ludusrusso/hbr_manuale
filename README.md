@@ -1,4 +1,4 @@
-# Introduzione
+## Introduzione
 
 Questo manuale fornisce un'introduzione all'utilizzo della piattaforma
 Open Source di Cloud Robotics sviluppata da HotBlack Robotics.
