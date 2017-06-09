@@ -2,9 +2,7 @@ In questo tutorial, vedremo come configurare ed utilizzare in Python un bottone 
  
 ![DotBot bottone tutorial ROS Raspberry](http://res.cloudinary.com/hbr/image/upload/v1484936611/IMG_20170120_172631_aupgbk.jpg)
  
-Come al solito, scrivo questo tutorial come materiale di supporto per il corso che stiamo facendo presso l'ITIS Avogadro di Torino.
- 
-##Scopo del Tutorial
+## Scopo del Tutorial
 Alla fine di questo tutorial, sapremo configurare ed utilizzare un bottone utilizzando le librerie **gpiozero** e **dotbot_ros**. In particolare, affronteremo i seguenti argomenti:
  
 - Uso della libreria **gpiozero** per interfacciarsi con un bottone e leggerne lo stato
@@ -12,9 +10,9 @@ Alla fine di questo tutorial, sapremo configurare ed utilizzare un bottone utili
 - Uso della libreria **dotbot_ros** per pubblicare su un topic
 - Uso delle Callback
  
-##Il circuito elettronico
+## Il circuito elettronico
  
-Come al solito, prima di iniziare a sviluppare il codice Ë importante configurare il circuito. Per il momento, utilizzeremo un semplice circuito, molto semplice, basato su un Led e un Bottone. Il led collegato al pin **GPIO05**, mentre il bottone, al pin **GPIO02**. Trovate un'immagine che mostra la numerazione dei pin in questa figura:
+Come al solito, prima di iniziare a sviluppare il codice √® importante configurare il circuito. Per il momento, utilizzeremo un semplice circuito, molto semplice, basato su un Led e un Bottone. Il led collegato al pin **GPIO05**, mentre il bottone, al pin **GPIO02**. Trovate un'immagine che mostra la numerazione dei pin in questa figura:
  
 ![Raspberry Pi Configurazione PIN](https://raw.githubusercontent.com/sgabello1/Dotbot-Kit-e-Tutorial/master/RP2_Pinout.png)
  
@@ -34,7 +32,7 @@ Colleghiamo una delle due fasi dell'interruttore al Pin **GPIO02** e l'altra fas
 ![Circuito elettronico](http://res.cloudinary.com/hbr/image/upload/v1484936413/tutorial2_bb_rsp6yo.png)
  
  
-##Scriviamo il codice!
+## Scriviamo il codice!
  
 Come al solito, partiamo dallo scheletro di un'applicazione, in cui impostiamo il nome del nodo come `button_example`
  
@@ -57,7 +55,7 @@ Importiamo i due oggetti che andremo ad utilizzare dalla libreria **gpiozero**: 
 from gpiozero import Button, LED
 ```
  
-###Utilizzo del bottone
+### Utilizzo del bottone
  
 Per il momento, utilizziamo solamente il bottone per visualizzare il suo stato (se chiuso o aperto) sfruttando la shell di **DotBot-ROS** e la funzione `print` di Python.
  
@@ -71,9 +69,9 @@ Per prima cosa, dobbiamo inilizzare il bottone e settare la frequenza di iterazi
  
 Con la riga `self.btn = Button(3)` abbiamo creato un attributo chiamato `btn` al nostro nodo che gestisce un bottone collegato al pin `GPIO02` del raspberry.
  
-Invece, come gi‡ spiegato nel tutorial precedente, la riga `self.loop_rate = dotbot_ros.Rate(10)` setta a 10Hz la frequenza di iterazione di `loop`.
+Invece, come gi√† spiegato nel tutorial precedente, la riga `self.loop_rate = dotbot_ros.Rate(10)` setta a 10Hz la frequenza di iterazione di `loop`.
  
-A questo punto, possiamo implementare la funzione `loop` in modo che stampi a video lo stato del bottone. Per farlo, utilizziamo l'attributo `is_pressed` dell'oggetto `Button`, che restituisce `True` se il bottone Ë premuto, `False` altrimenti.
+A questo punto, possiamo implementare la funzione `loop` in modo che stampi a video lo stato del bottone. Per farlo, utilizziamo l'attributo `is_pressed` dell'oggetto `Button`, che restituisce `True` se il bottone √® premuto, `False` altrimenti.
  
 Possiamo quindi utilizzare il costrutto `if`-`else` nella funzione `loop`:
  
@@ -95,13 +93,13 @@ Proviamo ad eseguire il codice e vedere cosa succede. Dovreste vedere un output 
 ![Shell Bottone Status](http://res.cloudinary.com/hbr/image/upload/v1484936416/Schermata_2017-01-20_alle_18.08.05_sshqv4.png)
  
  
-###Pubblichiamo lo stato del bottone su un topic ROS
+### Pubblichiamo lo stato del bottone su un topic ROS
  
 Se il programma precedente funziona, siamo pronti ad utilizzare una delle funzione principali di ROS: i **Topic**. 
  
-Un topic Ë un canale di comunicazione che permette ai vari nodi di una rete ROS di scambiare informazioni. Un nodo puÚ pubblicare o iscriversi ad un topic, in modo da mandare, o ricevere informazioni. Per ora ci focalizziamo sul pubblicare i dati.
+Un topic √® un canale di comunicazione che permette ai vari nodi di una rete ROS di scambiare informazioni. Un nodo pu√≤ pubblicare o iscriversi ad un topic, in modo da mandare, o ricevere informazioni. Per ora ci focalizziamo sul pubblicare i dati.
  
-Per farlo, dobbiamo creare un oggetto `Publisher`, utilizzando il costruttore `dotbot_ros.Publisher(<Name>, <Type>)`. Dove il parametro *Name* Ë una stringa che indica il nome del topic, mentre il parametro `Type` Ë un oggetto che indica il tipo di messaggio che viene scambiato all'interno del topic.
+Per farlo, dobbiamo creare un oggetto `Publisher`, utilizzando il costruttore `dotbot_ros.Publisher(<Name>, <Type>)`. Dove il parametro *Name* √® una stringa che indica il nome del topic, mentre il parametro `Type` √® un oggetto che indica il tipo di messaggio che viene scambiato all'interno del topic.
  
 In questo semplice esempio, chiameremo il topic `button_status` e manderemo messaggi di tipo booleano. Per utilizzare il tipo `Bool` dei messaggi, prima di tutto dobbiamo importarlo dalla libreria `std_msgs.msg`, aggiungendo questa stringa all'inizio del programma
  
@@ -131,22 +129,22 @@ A questo punto, possiamo utilizzarlo nella funzione `loop`. Modifichiamola nel m
         sys.stdout.flush()
 ```
  
-In particolare, abbiamo creato una nuova variabile chiamata `btn_status`, che contiene il valore dello stato del bottone. Con la riga `self.pub_btn_status.publish(btn_status)` diciamo all'oggetto pubblicatore di mandare un messaggio sul topic a cui si riferisce contenente il valore della variabile `btn_status`. Il resto della funzione non Ë stato modificato.
+In particolare, abbiamo creato una nuova variabile chiamata `btn_status`, che contiene il valore dello stato del bottone. Con la riga `self.pub_btn_status.publish(btn_status)` diciamo all'oggetto pubblicatore di mandare un messaggio sul topic a cui si riferisce contenente il valore della variabile `btn_status`. Il resto della funzione non √® stato modificato.
  
-A questo punto possiamo nuovamente testare il programma, per vedere se il topic ROS viene effettivamente utilizzato e i messaggi vengono mandati. Una volta lanciato il programma, accediamo al tab `ROS` della piattaforma online. Nella lista di topic, dovreste vedere un topic chiamato `/<nome del robot>/button_status`. Questo Ë il topic che abbiamo appena creato. Si noti che la piattaforma aggiunge automaticamente il *namespace* del vostro robot ai topic che creeremo. Nel mio caso specifico, il topic si chiama `/polibot/button_status`. Premiamo quindi sul pulsante **Echo** riferito al topic in questione. Si aprir‡ un nuovo pannello che mostrer‡ in tempo reale i dati scambiati all'interno del topic. 
+A questo punto possiamo nuovamente testare il programma, per vedere se il topic ROS viene effettivamente utilizzato e i messaggi vengono mandati. Una volta lanciato il programma, accediamo al tab `ROS` della piattaforma online. Nella lista di topic, dovreste vedere un topic chiamato `/<nome del robot>/button_status`. Questo √® il topic che abbiamo appena creato. Si noti che la piattaforma aggiunge automaticamente il *namespace* del vostro robot ai topic che creeremo. Nel mio caso specifico, il topic si chiama `/polibot/button_status`. Premiamo quindi sul pulsante **Echo** riferito al topic in questione. Si aprir√† un nuovo pannello che mostrer√† in tempo reale i dati scambiati all'interno del topic. 
  
 ![Echo Topic Status](http://res.cloudinary.com/hbr/image/upload/v1484936413/Schermata_2017-01-20_alle_18.27.11_meep9b.png)
  
 Proviamo a premere il bottone e vediamo se i valori inviati cambiano di conseguenza!!
  
  
-###Controllo del LED
+### Controllo del LED
  
 A questo punto, siamo pronti a completare la nostra applicazione utilizzando un Led. Voglio, in particolare, far si che ogni volta che il bottone venga premuto, il led cambi stato (utilizzando la funzione `toggle` vista nel tutorial precedente). 
  
-Per farlo, utilizzeremo un concetto di programmazione chiamato `callback`. La `callback` Ë una funzione che non viene chiamata in modo esplicito dal programma, ma che viene chiamata al verificarsi di un evento. In particolare, quello che faremo Ë creare una callback che chiamer‡ la funzione `Led.toggle` quando si verifica l'evento di pressione del bottone.
+Per farlo, utilizzeremo un concetto di programmazione chiamato `callback`. La `callback` √® una funzione che non viene chiamata in modo esplicito dal programma, ma che viene chiamata al verificarsi di un evento. In particolare, quello che faremo √® creare una callback che chiamer√† la funzione `Led.toggle` quando si verifica l'evento di pressione del bottone.
  
-Prima di tutto, creiamo il nostro oggetto `LED` nella funzione `setup` utilizzando la linea di codice `self.led = LED(5)`. A questo punto, siamo pronti a settare la callback: per associare una funzione all'evento *pressione del pulsante*, dobbiamo settare il nome della funzione da richiamare allíattributo `Button.when_pressed`: `self.btn.when_pressed = self.led.toggle`. Sembra semplice vero? Eppure questo basta per far funzionare il tutto.
+Prima di tutto, creiamo il nostro oggetto `LED` nella funzione `setup` utilizzando la linea di codice `self.led = LED(5)`. A questo punto, siamo pronti a settare la callback: per associare una funzione all'evento *pressione del pulsante*, dobbiamo settare il nome della funzione da richiamare all‚Äôattributo `Button.when_pressed`: `self.btn.when_pressed = self.led.toggle`. Sembra semplice vero? Eppure questo basta per far funzionare il tutto.
  
 ```python
     def setup(self):
@@ -159,7 +157,7 @@ Si noti che noi non andiamo a chiamare esplicitamente la funzione `self.led.togg
  
 Possiamo a questo punto lanciare il programma e testare che tutto funzioni!
  
-###Codice completo
+### Codice completo
  
 Qui trovate il codice completo appena realizzato
  
@@ -191,17 +189,17 @@ class Node(dotbot_ros.DotbotNode):
         sys.stdout.flush()
 ```
  
-##Esercizi
+## Esercizi
  
 Provate a migliorare il programma come segue.
  
-####1. Aggiungere un secondo pulsante
+#### 1. Aggiungere un secondo pulsante
 Aggiungete un nuovo pulsante su un pin GPIO a piacere e stampate a video gli stati di entrambi i pulsanti ad ogni iterazione.
  
-####2. Controllo del led con entrambi i pulsanti
+#### 2. Controllo del led con entrambi i pulsanti
 Controllate il led utilizzando i due pulsanti. In particolare, fate in modo che il led si spenga premendo il primo pulsante, e si accenda premendo il secondo pulsante. Utilizzate le funzioni `led.on` e `led.off`.
  
-####3. Topic `btn1_and_btn2`
+#### 3. Topic `btn1_and_btn2`
 Create un secondo topic di tipo `Bool` chiamato `btn1_and_btn2`. Su questo topic, inviate l'informazione ottenuta dall'`AND` logico del valore dei due pulsanti.
  
 Ricordo che in Pyton, l'`AND` logico tra due variabili `a` e `b` booleane si implementa con la seguente sintassi
