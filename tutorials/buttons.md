@@ -2,8 +2,6 @@ In questo tutorial, vedremo come configurare ed utilizzare in Python un bottone 
  
 ![DotBot bottone tutorial ROS Raspberry](http://res.cloudinary.com/hbr/image/upload/v1484936611/IMG_20170120_172631_aupgbk.jpg)
  
-Come al solito, scrivo questo tutorial come materiale di supporto per il corso che stiamo facendo presso l'ITIS Avogadro di Torino.
- 
 ## Scopo del Tutorial
 Alla fine di questo tutorial, sapremo configurare ed utilizzare un bottone utilizzando le librerie **gpiozero** e **dotbot_ros**. In particolare, affronteremo i seguenti argomenti:
  
