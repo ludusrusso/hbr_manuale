@@ -42,8 +42,12 @@ Comprende i seguenti componenti, da stampare in 3D:
  - Case Robot
  - porta Breadboard
  - porta Raspberry Pi
+ - copertura Robot (opzionale)
 
 ![Componenti](assets/hw/IMG_2538.JPG)
+
+![Componenti](assets/hw/IMG_2650.JPG)
+
 
 ## Montaggio
 
@@ -157,8 +161,18 @@ Colleghiamo quindi i fili di alimentazione della batteria ai due morsetti intern
 
 ![Componenti](assets/hw/IMG_2566.JPG)
 
-## Accensione
+### 6. Accensione
 
 Per accendere il raspberry pi, collegate l'USB al Raspberry!
 
 ![Componenti](assets/hw/IMG_2567.JPG)
+
+## 7. Copertuara
+
+La copertura non è necessaria al buon funzionamento del robot, ma la consigliamo per aumentare la sicurezza del sistema. La copertura, blocca l'accesso alla parti elettriche, in modo da evitare che queste vengano toccate per sbaglio.
+
+Una volta acceso il robot, incastrare la copertura al case del robot utilizzando le apposite guide in prossimità degli angoli.
+
+![Componenti](assets/hw/IMG_2651.JPG)
+
+![Componenti](assets/hw/IMG_2652.JPG)
